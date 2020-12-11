@@ -252,7 +252,7 @@ bool Chip8::run() {
             break;
         }
 
-        case 0xA000: {
+        case 0xB000: {
             int nnn = opcode & 0x0FFF;
             pc = nnn + V[0];
             break;
