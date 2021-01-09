@@ -1,5 +1,11 @@
-main: bin/main.o bin/Chip8.o bin/Display.o
-	g++ bin/*.o -o main -lSDL2
+all: bin/main.o bin/Chip8.o bin/Display.o
+	g++ bin/*.o -o chip8emu -lSDL2
+
+install:
+	cp chip8emu /usr/bin/chip8emu
+
+uninstall:
+	rm /usr/bin/chip8emu
 
 bin/main.o: src/main.cpp
 	mkdir -p bin
@@ -14,5 +20,5 @@ bin/Display.o: src/Display.hpp src/Display.cpp
 	g++ -c src/Display.cpp -o bin/Display.o
 
 clean:
-	rm main
+	rm chip8emu
 	rm -rf bin
